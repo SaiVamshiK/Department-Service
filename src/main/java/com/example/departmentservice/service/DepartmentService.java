@@ -24,6 +24,9 @@ public class DepartmentService {
     }
 
     public Department getDepartmentById(Long departmentId) {
+        if(!departmentRepository.existsById(departmentId)){
+            return null;
+        }
         return departmentRepository.findById(departmentId).get();
     }
 }
